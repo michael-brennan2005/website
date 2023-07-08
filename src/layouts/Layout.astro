@@ -1,23 +1,67 @@
 ---
 export interface Props {
 	title: string;
+	date: string;
 }
-
-const { title } = Astro.props;
+const { title, date } = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
+		<meta name="description" content="my cool website :)">
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
 	<body>
-		<slot />
+		<div class="container mx-auto p-4">
+			<div class="flex mb-2">
+				<div class="w-9/12">
+					<a href="/" class="mb-2 font-bold hover:underline text-6xl">tech0tron</h1>
+					
+				</div>
+				<div class="w-3/12">
+					<a class="hover:underline" href="https://github.com/tech0tron">GitHub</a>
+				</div>
+			</div>
+			<div class="red-bar"></div>
+			<div class="green-bar"></div>
+			<div class="yellow-bar"></div>
+			<div class="min-h-screen mt-2 flex flex-col md:flex-row">
+				<div class="w-full md:w-9/12">
+					<h1 class="font-bold text-4xl">{title}</h1>
+					<p class="italic text-md">{date}</p>
+					<slot />
+				</div>
+				<div class="w-full md:w-3/12">
+					<h1 class="font-bold text-4xl">Contents</h1>
+					<ul class="list-disc">
+						<li><a href="/">Home</a></li>
+					</ul>
+				</div>
+			</div>
+			<section class="flex justify-center space-x-4">
+				<a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/directx-12-programming-guide"><img src="/directxnow.gif" width="88" height="31" /></a>
+				<a href="https://neovim.io/"><img src="/neovim.gif" width="88" height="31" /></a> 
+				<img src="/floyd.gif" width="88" height="31" /> 
+				<img src="/mp3love.gif" width="88" height="31" /> 
+				<img src="/saynotoweb3.gif" width="88" height="31" /> 
+				<img src="/sucks.gif" width="88" height="31" /> 
+				<a href="https://www.minecraft.net/en-us"><img src="/minecraft.gif" width="88" height="31" /> </a>
+				<img src="/reshirii.gif" width="88" height="31" /> 
+				<img src="/powered-cpp.gif" width="88" height="31" /> 
+				<img src="/register-it.gif" width="88" height="31" /> 
+				<a href="https://www.mozilla.org"><img src="/firefox3.gif" width="88" height="31" /> </a>
+				<a href="https://products.drpepper.com"><img src="/drpepper.gif" width="88" height="31" /></a>
+				
+			</section>
+			<div>
+				<p class="w-full text-center">Made with Astro</p>
+			</div>
+		</div>
 	</body>
 </html>
 <style is:global>
@@ -25,12 +69,46 @@ const { title } = Astro.props;
 		--accent: 124, 58, 237;
 		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
 	}
+
+	h1 {
+		@apply text-7xl;
+	}
+
+	h2 {
+		@apply text-4xl;
+	}
+
+	h3 {
+		@apply text-xl;
+	}
+
 	html {
-		font-family: system-ui, sans-serif;
-		background-color: #F6F6F6;
+		font-family: 'Times New Roman', serif !important;
+		color: #ebdbb2;
+		background-color: #282828;
+	}
+	
+	a {
+		@apply hover:underline font-bold
 	}
 	code {
-		font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-			Bitstream Vera Sans Mono, Courier New, monospace;
+		font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+	}
+
+	.red-bar {
+		height: 5px;
+		background-color: #fb4934;
+	}
+
+	.green-bar {
+		height:5px;
+		background-color: #b8bb26;
+		margin-top: 5px;
+	}
+
+	.yellow-bar {
+		height: 5px;
+		background-color: #fabd2f;
+		margin-top: 5px;
 	}
 </style>

@@ -1,0 +1,3 @@
+[[language]]
+name = "astro"
+config = { "typescript" = { serverPath = "/home/user/path_to_my_project/node_modules/typescript/lib/tsserverlibrary.js" }, "environment" = "node" }
